@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clientes SURA</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" href="/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+        <a href="/view/clientes/nuevo">Registrar nuevo cliente</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th>Fecha Registro</th>
+                    <th>Cambiar Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.id}"></td>
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.estadoAfiliacion}"></td>
+                    <td th:text="${cliente.fechaRegistro}"></td>
+                    <td>
+                        <form th:action="@{'/view/clientes/' + ${cliente.id} + '/estado'}" method="post">
+                            <select name="estado">
+                                <option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
+                            </select>
+                            <button type="submit">Cambiar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

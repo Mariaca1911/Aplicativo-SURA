@@ -1,0 +1,7 @@
+com\sura\asesores\controller\ClienteController.class
+com\sura\asesores\service\ClienteService.class
+com\sura\asesores\repository\ClienteRepository.class
+com\sura\asesores\controller\ClienteController$ClienteViewController.class
+com\sura\asesores\model\Cliente.class
+com\sura\asesores\model\EstadoAfiliacion.class
+com\sura\asesores\SuraAsesoresApplication.class
